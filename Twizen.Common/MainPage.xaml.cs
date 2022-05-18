@@ -1,21 +1,5 @@
-﻿/*
- * Copyright (c) 2019 Samsung Electronics Co., Ltd All Rights Reserved
- *
- * Licensed under the Apache License, Version 2.0 (the License);
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an AS IS BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-
-using Twizen.TV;
+﻿using TwitchLib.Api;
+using Twizen.Common;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -27,10 +11,46 @@ namespace TizenTVHttpSample
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
+        private readonly TwitchAPI _api;
 
         public MainPage()
         {
             InitializeComponent();
+
+            _api = new TwitchAPI
+            {
+                Settings =
+                {
+                    ClientId = "ocgrw1sbpatkypfrml0o9mj1zdbsz6",
+                    AccessToken = "syfsf1kgfmatkdg73cqbk4npxafc5p"
+                }
+            };
+
+            //_api = new TwitchAPI();
+
+            LoadStreams();
+        }
+
+        private async void Button_Clicked(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new TwitchPlayerPage());
+        }
+
+        private async void LoadStreams()
+        {
+            var streams = await _api.Helix.Streams.GetStreamsAsync();
+            foreach (var stream in streams.Streams)
+            {
+                var streamTile = new StreamTile
+                {
+                    Stream = stream
+                };
+
+                StreamTiles.Children.Add(streamTile);
+            }
+
+            activityIndicator.IsRunning = false;
+            activityIndicator.IsVisible = false;
         }
     }
 }

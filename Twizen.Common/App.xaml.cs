@@ -29,7 +29,7 @@ namespace TizenTVHttpSample
         {
             InitializeComponent();
 
-            MainPage = new TizenTVHttpSample.MainPage();
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

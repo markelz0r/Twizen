@@ -1,5 +1,9 @@
 ﻿using Tizen.Multimedia;
 
+#if WINDOWS_UWP
+using Windows.UI.Popups;
+#endif
+
 #if TIZEN5_5
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Tizen;
@@ -18,8 +22,6 @@ namespace Twizen.TV
         {
             var player = new Player();
 
-            //player.ErrorOccurred += OnError;
-
             player.SetSource(new MediaUriSource(contentUrl));
             var display = new Display(((FormsApplication)Forms.Context).MainWindow);
 
@@ -35,9 +37,13 @@ namespace Twizen.TV
             System.Diagnostics.Debugger.Log(1, "Player", "Player has started");
             player.Start();
         }
-
+#elif WINDOWS_UWP
+        public static void CreateAndStart(string contentUrl)
+        {
+            _ = new MessageDialog($"Twitch Player is starting up for {contentUrl}").ShowAsync();
+        }
 #else
-        public static void CreateAndStart()
+        public static async void CreateAndStart(string contentUrl)
         {
 
         }

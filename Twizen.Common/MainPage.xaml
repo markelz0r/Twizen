@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:common="clr-namespace:Twizen.Common;assembly=Twizen.Common"
-             x:Class="TizenTVHttpSample.MainPage">
+             x:Class="TizenTVHttpSample.MainPage"
+             BackgroundColor="Black">
     <ContentPage.BindingContext>
         <common:MainPageModel />
     </ContentPage.BindingContext>
@@ -15,12 +16,15 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Padding="50" Spacing="20">
-            <!--<ListView>
-                <ListView.ItemsSource>
-                </ListView.ItemsSource>
-            </ListView>-->
-            <Label Text="ЕБАНЫЙ В РОТ" FontSize="100" TextColor="Red"/>
+            <ScrollView>
+                <FlexLayout x:Name="StreamTiles"
+                            Wrap="Wrap"
+                            JustifyContent="SpaceEvenly" />
+            </ScrollView>
             
+            <ActivityIndicator x:Name="activityIndicator"
+                           IsRunning="True"
+                           VerticalOptions="Center" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
