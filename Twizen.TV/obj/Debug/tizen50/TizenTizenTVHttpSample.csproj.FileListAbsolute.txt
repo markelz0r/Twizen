@@ -1,0 +1,11 @@
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\bin\Debug\tizen50\tpkroot\bin\TizenTVHttpSample.dll
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\bin\Debug\tizen50\tpkroot\bin\TizenTVHttpSample.pdb
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\bin\Debug\tizen50\tpkroot\bin\Newtonsoft.Json.dll
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\bin\Debug\tizen50\tpkroot\bin\Xamarin.Forms.Core.dll
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\bin\Debug\tizen50\tpkroot\bin\Xamarin.Forms.Platform.Tizen.dll
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\bin\Debug\tizen50\tpkroot\bin\Xamarin.Forms.Platform.dll
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\bin\Debug\tizen50\tpkroot\bin\Xamarin.Forms.Xaml.dll
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\bin\Debug\tizen50\tpkroot\TizenTVHttpSample.deps.json
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\bin\Debug\tizen50\tpkroot\shared\res\TizenTVHttpSample.png
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\bin\Debug\tizen50\tpkroot\tizen-manifest.xml
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\bin\Debug\tizen50\org.tizen.example.TizenTVHttpSample-1.0.0.tpk

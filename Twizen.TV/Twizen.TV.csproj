@@ -1,0 +1,32 @@
+﻿<Project Sdk="Tizen.NET.Sdk/1.0.9">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+<!--    <TargetFramework>net6.0</TargetFramework>-->
+    <TargetFramework>tizen55</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>None</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="lib\" />
+    <Folder Include="res\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Xamarin.Forms" Version="4.5.0.356" />
+    <PackageReference Include="Tizen.NET" Version="6.0.0.14995" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Twizen.Common\Twizen.Common.csproj" />
+  </ItemGroup>
+
+</Project>
+

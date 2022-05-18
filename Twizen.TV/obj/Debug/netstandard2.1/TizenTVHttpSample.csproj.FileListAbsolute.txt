@@ -1,0 +1,7 @@
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\obj\Debug\netstandard2.1\TizenTVHttpSample.csproj.AssemblyReference.cache
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\obj\Debug\netstandard2.1\TizenTVHttpSample.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\obj\Debug\netstandard2.1\App.xaml.g.cs
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\obj\Debug\netstandard2.1\MainPage.xaml.g.cs
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\obj\Debug\netstandard2.1\TizenTVHttpSample.AssemblyInfoInputs.cache
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\obj\Debug\netstandard2.1\TizenTVHttpSample.AssemblyInfo.cs
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\obj\Debug\netstandard2.1\TizenTVHttpSample.csproj.CoreCompileInputs.cache

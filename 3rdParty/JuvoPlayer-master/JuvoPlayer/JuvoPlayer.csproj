@@ -1,0 +1,52 @@
+﻿<Project Sdk="Tizen.NET.Sdk/1.1.6">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFrameworks>netcoreapp2.1;netstandard2.0;tizen50</TargetFrameworks>
+    <TizenCreateTpkOnBuild>false</TizenCreateTpkOnBuild>
+    <PackageReleaseNotes>Release to be presented to the public. It will be uploaded to the SDF GitHub site.</PackageReleaseNotes>
+    <Company>SRPOL MVS</Company>
+    <Description>Reference for video streaming Tizen .Net TV applications.</Description>
+    <Copyright>Samsung Electronics</Copyright>    
+    <AssemblyVersion>$(Version)</AssemblyVersion>
+    <FileVersion>$(Version)</FileVersion>
+    <SignAssembly>false</SignAssembly>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>portable</DebugType>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>;1701;1702;</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>None</DebugType>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Common\UI.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FFmpegBindings" Version="3.3.6" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="Nito.AsyncEx" Version="5.0.0-pre-05" />
+    <PackageReference Include="Nito.AsyncEx.Context" Version="5.0.0-pre-05" />
+    <PackageReference Include="Overby.Extensions.AsyncBinaryReaderWriter" Version="1.0.39" />
+    <PackageReference Include="System.Memory" Version="4.5.3" />
+    <PackageReference Include="System.Reactive" Version="4.1.2" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="4.5.0" />
+    <PackageReference Include="System.Threading.Channels" Version="4.5.0" />
+    <!-- Tizen.* packages are excluded from runtime -->
+    <PackageReference Include="SkiaSharp" Version="1.60.3">
+      <ExcludeAssets>Runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="Tizen.NET.TV" Version="5.5.0.4997532">
+      <ExcludeAssets>Runtime</ExcludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Configuration\Configuration.csproj" />
+    <ProjectReference Include="..\JuvoLogger\JuvoLogger.csproj" />
+    <ProjectReference Include="..\MpdParser\MpdParser.csproj" />
+    <ProjectReference Include="..\thirdparty\RTSP\RTSP.csproj" />
+  </ItemGroup>
+</Project>
+

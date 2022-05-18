@@ -1,0 +1,76 @@
+<Project Sdk="Tizen.NET.Sdk/1.1.6">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>tizen60;tizen50</TargetFrameworks>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyName>JuvoPlayerXamarin.Tizen.TV</AssemblyName>
+    <NoWin32Manifest>true</NoWin32Manifest>
+    <Authors>SRPOL MVS</Authors>
+    <Company>Samsung Electronics VD</Company>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Description>JuvoPlayerXamarin.Tizen.TV</Description>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <Import Project="IntermediateManifest.targets" />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>None</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="res\subs\media_player_subs_windows-1250.srt" />
+    <None Remove="res\subs\media_player_subs_windows-1252.srt" />
+    <None Remove="shared\res\videoclips.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="res\subs\media_player_subs_windows-1250.srt" />
+    <EmbeddedResource Include="res\subs\media_player_subs_windows-1252.srt" />
+  </ItemGroup>
+  <!-- If solution already has PCL project, will reference -->
+  <!-- Include Nuget Package for Tizen Project building -->
+  <PropertyGroup>
+    <TizenTpkExcludePattern>res\storyboards\**\*</TizenTpkExcludePattern>
+    <TizenTpkExcludePattern Condition="'$(TargetFramework)' == 'tizen50'">runtimes\*\native\libSkiaSharp.so;</TizenTpkExcludePattern>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1560" />
+    <PackageReference Include="Xamarin.HotReload" Version="2.0.13" />
+    <Reference Include="Xamarin.Forms.GenGridView, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>packages\Xamarin.Forms.GenGridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.GenGridView.Tizen, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>packages\Xamarin.Forms.GenGridView.Tizen.dll</HintPath>
+    </Reference>
+    <Reference Condition="'$(TargetFramework)' == 'tizen50'" Include="SkiaSharp.Views.Forms, Version=1.60.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>packages\SkiaSharp.Views.Forms.dll</HintPath>
+    </Reference>
+    <Reference Condition="'$(TargetFramework)' == 'tizen50'" Include="SkiaSharp.Views.Tizen, Version=1.60.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
+      <HintPath>packages\SkiaSharp.Views.Tizen.dll</HintPath>
+    </Reference>
+    <!-- Tizen.* packages are excluded from runtime -->
+    <PackageReference Condition="'$(TargetFramework)' == 'tizen50'" Include="SkiaSharp" Version="1.60.3">
+      <ExcludeAssets>Runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Condition="'$(TargetFramework)' == 'tizen60'" Include="SkiaSharp" Version="2.80.2" GeneratePathProperty="true" />
+    <PackageReference Condition="'$(TargetFramework)' == 'tizen60'" Include="SkiaSharp.Views.Forms" Version="2.80.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\JuvoLogger.Tizen\JuvoLogger.Tizen.csproj" />
+    <ProjectReference Include="..\..\JuvoLogger.Udp\JuvoLogger.Udp.csproj" />
+    <ProjectReference Include="..\..\JuvoPlayer\JuvoPlayer.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

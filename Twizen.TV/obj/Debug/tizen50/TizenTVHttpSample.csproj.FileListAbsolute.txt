@@ -1,0 +1,13 @@
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\bin\Debug\tizen50\TizenTVHttpSample.deps.json
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\bin\Debug\tizen50\TizenTVHttpSample.dll
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\bin\Debug\tizen50\TizenTVHttpSample.pdb
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\obj\Debug\tizen50\TizenTVHttpSample.csproj.AssemblyReference.cache
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\obj\Debug\tizen50\TizenTVHttpSample.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\obj\Debug\tizen50\App.xaml.g.cs
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\obj\Debug\tizen50\MainPage.xaml.g.cs
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\obj\Debug\tizen50\TizenTVHttpSample.AssemblyInfoInputs.cache
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\obj\Debug\tizen50\TizenTVHttpSample.AssemblyInfo.cs
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\obj\Debug\tizen50\TizenTVHttpSample.csproj.CoreCompileInputs.cache
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\obj\Debug\tizen50\XamlC.stamp
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\obj\Debug\tizen50\TizenTVHttpSample.dll
+C:\Users\a1cov\Downloads\TizenTVHttpSample\src\TizenTVHttpSample\obj\Debug\tizen50\TizenTVHttpSample.pdb
