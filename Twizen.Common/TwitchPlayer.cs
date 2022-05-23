@@ -18,7 +18,7 @@ namespace Twizen.TV
 
         }
 #if TIZEN5_5
-        public static async void CreateAndStart(string contentUrl)
+        public static async System.Threading.Tasks.Task<Player> CreateAndStart(string contentUrl)
         {
             var player = new Player();
 
@@ -36,16 +36,18 @@ namespace Twizen.TV
             player.DisplaySettings.Mode = PlayerDisplayMode.FullScreen;
             System.Diagnostics.Debugger.Log(1, "Player", "Player has started");
             player.Start();
+            return player;
         }
 #elif WINDOWS_UWP
-        public static void CreateAndStart(string contentUrl)
+        public static System.Threading.Tasks.Task<Player> CreateAndStart(string contentUrl)
         {
             _ = new MessageDialog($"Twitch Player is starting up for {contentUrl}").ShowAsync();
+            return null;
         }
 #else
-        public static async void CreateAndStart(string contentUrl)
+        public static async System.Threading.Tasks.Task<Player> CreateAndStart(string contentUrl)
         {
-
+            return null;
         }
 #endif
         private void OnError(object sender, PlayerErrorOccurredEventArgs e)

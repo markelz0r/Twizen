@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:components="clr-namespace:Twizen.Common"
+             x:Class="Twizen.Common.StreamTile">
+    <ContentView.Content>
+        <StackLayout Padding="0,0,0,30">
+            <Frame CornerRadius="13"
+               HasShadow="True"
+               IsClippedToBounds="True"
+               HorizontalOptions="Center" Padding="0">
+                <Grid WidthRequest="800">
+                    <Button Clicked="OnTapped" TextColor="{Binding Path=ButtonTextColor, Mode=TwoWay}">
+                        <Button.Effects>
+                            <components:FocusRoutingEffect/>
+                        </Button.Effects>
+                    </Button>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="555"/>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition Height="80"/>
+                        </Grid.RowDefinitions>
+                        <Frame x:Name="circleFrame" HasShadow="False" Padding="0"  Margin="10,10,10,10" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Gray" CornerRadius="13">
+                            <Image x:Name="streamPreview" Source="{Binding Path=ThumbnailUrl}"/>
+                        </Frame>
+                        <Label 
+                            Grid.Row="1" 
+                            Text="{Binding Path=Title}" 
+                            Margin="10,0,0,0" 
+                            FontSize="35"
+                            TextColor="{Binding Path=ButtonTextColor}"/>
+                        <Label 
+                            Grid.Row="2" 
+                            Text="{Binding Path=Username}" 
+                            FontSize="35"
+                            Margin="10,0,0,0" 
+                            TextColor="{Binding Path=ButtonTextColor}"/>
+                        <Label 
+                            Grid.Row="3" 
+                            Text="{Binding Path=ViewerCount}" 
+                            FontSize="35"
+                            Margin="10,0,0,0" 
+                            TextColor="{Binding Path=ButtonTextColor}"/>
+                    </Grid>
+                </Grid>
+            </Frame>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

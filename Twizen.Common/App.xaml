@@ -4,40 +4,7 @@
              x:Class="TizenTVHttpSample.App">
     <Application.Resources>
         <ControlTemplate x:Key="AsyncButtonControlTemplate">
-            <Frame CornerRadius="13"
-               HasShadow="True"
-               IsClippedToBounds="{Binding Source={RelativeSource TemplatedParent},Path=ButtonClippedToBounds}"
-               HorizontalOptions="Center" Padding="0">
-                <Grid WidthRequest="400">
-                    <Button TextColor="{Binding Source={RelativeSource TemplatedParent},Path=ButtonTextColor, Mode=TwoWay}">
-                        <Button.Effects>
-                            <common:FocusRoutingEffect/>
-                        </Button.Effects>
-                    </Button>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="30"/>
-                        </Grid.RowDefinitions>
-                        <Frame x:Name="circleFrame" HasShadow="False" Padding="0"  Margin="10,10,10,10" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Gray" CornerRadius="13">
-                            <Image 
-                                 Source="{Binding Source={RelativeSource TemplatedParent},Path=ThumbnailUrl} "></Image>
-                        </Frame>
-                        <Label Grid.Row="1" Text="{Binding Source={RelativeSource TemplatedParent},Path=Title}" Margin="10,0,0,0" TextColor="{Binding Source={RelativeSource TemplatedParent},Path=ButtonTextColor}"></Label>
-                        <Label Grid.Row="2" Text="{Binding Source={RelativeSource TemplatedParent},Path=Username}" Margin="10,0,0,0" TextColor="{Binding Source={RelativeSource TemplatedParent},Path=ButtonTextColor}"></Label>
-                        <Label Grid.Row="3" Text="{Binding Source={RelativeSource TemplatedParent},Path=ViewerCount}" Margin="10,0,0,0" TextColor="{Binding Source={RelativeSource TemplatedParent},Path=ButtonTextColor}"></Label>
-                    </Grid>
-                    <!--<Button Text="{Binding Source={RelativeSource TemplatedParent},Path=ButtonText}" BackgroundColor="{Binding Source={RelativeSource TemplatedParent},Path=ButtonBackgroundColor}" 
-                        TextColor="{Binding Source={RelativeSource TemplatedParent},Path=ButtonTextColor}" HorizontalOptions="CenterAndExpand"
-                        Command="{Binding Source={RelativeSource TemplatedParent},Path=FetchCommand}">-->
-                    <!--<Button.Effects>
-                            <common:FocusRoutingEffect/>
-                        </Button.Effects>-->
-                    <!--</Button>-->
-                </Grid>
-            </Frame>
+            
         </ControlTemplate>
     </Application.Resources>
 </Application>

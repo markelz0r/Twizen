@@ -14,7 +14,7 @@ namespace Twizen.TV
         static void Main(string[] args)
         {
             var app = new Program();
-            Forms.Init(app);
+            Forms.Init(app, true);
             app.Run(args);
         }
     }
