@@ -6,6 +6,9 @@
         <StackLayout Orientation="Horizontal">
             <Label Text="Example control 1"/>
             <Label Text="Example control 2"/>
+            <ActivityIndicator x:Name="activityIndicator"
+                           IsRunning="True"
+                           VerticalOptions="Center" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

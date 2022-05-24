@@ -31,11 +31,6 @@ namespace TizenTVHttpSample
             LoadStreams();
         }
 
-        private async void Button_Clicked(object sender, System.EventArgs e)
-        {
-            await Navigation.PushAsync(new TwitchPlayerPage());
-        }
-
         private async void LoadStreams()
         {
             var streams = await _api.Helix.Streams.GetStreamsAsync();

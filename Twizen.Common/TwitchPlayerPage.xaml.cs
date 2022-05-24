@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
 using Tizen.Multimedia;
 using Twizen.TV;
 using Xamarin.Forms;
@@ -10,26 +14,44 @@ namespace Twizen.Common
     public partial class TwitchPlayerPage : ContentPage
     {
         private Player _player;
+        private string _username;
 
-        public TwitchPlayerPage()
+        public TwitchPlayerPage(string username)
         {
             InitializeComponent();
-#if TIZEN
+            _username = username;    
             InitPlayer();
-#endif
+
         }
 
         private async void InitPlayer()
         {
-            _player = await TwitchPlayer.CreateAndStart("https://sec.ch9.ms/ch9/5d93/a1eab4bf-3288-4faf-81c4-294402a85d93/XamarinShow_mid.mp4");
+            var client = new HttpClient();
+            var result = await client.GetStringAsync($"http://server.markel.info:3333/link/{_username}");
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            try
+            {
+                dic = JsonConvert.DeserializeObject<Dictionary<string, string>>(result);
+            }
+            catch (Exception ex)
+            {
+                //global::Tizen.Log.Info("Crash", ex.Message);
+            }
+            //Debug.WriteLine(dictionary["best"]);
+#if TIZEN
+
+            _player = await TwitchPlayer.CreateAndStart(dic["best"]);
+            activityIndicator.IsRunning = false;
+            activityIndicator.IsVisible = false;
+#endif
         }
 
         protected override bool OnBackButtonPressed()
         {
             _player.Stop();
-            _player.Dispose();
-
             Navigation.PopModalAsync();
+            
+            _player.Dispose();
             return true;
         }
     }

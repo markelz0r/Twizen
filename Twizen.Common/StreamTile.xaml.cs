@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using TwitchLib.Api.Helix.Models.Streams;
 using Twizen.TV;
 using Xamarin.Forms;
@@ -87,7 +90,7 @@ namespace Twizen.Common
         async void OnTapped(object sender, EventArgs e)
         {
             // TODO figure out how to get m3u8 from twitch
-            await Navigation.PushModalAsync(new TwitchPlayerPage());
+            await Navigation.PushModalAsync(new TwitchPlayerPage(Username));
             //TwitchPlayer.CreateAndStart("https://sec.ch9.ms/ch9/5d93/a1eab4bf-3288-4faf-81c4-294402a85d93/XamarinShow_mid.mp4");
         }
 
@@ -96,7 +99,7 @@ namespace Twizen.Common
          Title = new string(Stream.Title.Take(30).ToArray());
          ThumbnailUrl = Stream.ThumbnailUrl.Replace("{width}", "480").Replace("{height}", "270");
          ViewerCount = Stream.ViewerCount.ToString();
-         Username = Stream.UserId;
+         Username = Stream.UserName;
       }
     }
 }
