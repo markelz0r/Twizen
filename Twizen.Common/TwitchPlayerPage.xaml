@@ -4,14 +4,18 @@
              x:Class="Twizen.Common.TwitchPlayerPage">
     <ContentPage.Content>
         <Grid>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Example control 1"/>
-                <Label Text="Example control 2"/>
+            <StackLayout x:Name="TitleBar" Orientation="Horizontal" BackgroundColor="LightGray" VerticalOptions="Start" HeightRequest="200">
+                <Label Text="{Binding Stream.Title}" TextColor="Black"/>
+                <Label Text="{Binding Stream.ViewerCount}" TextColor="Black"/>
             </StackLayout>
             <ActivityIndicator x:Name="activityIndicator"
                                IsRunning="True"
                                VerticalOptions="CenterAndExpand"
                                HorizontalOptions="CenterAndExpand"/>
-        </Grid>
+            <StackLayout x:Name="PlayerControls" Orientation="Horizontal" BackgroundColor="LightGray" VerticalOptions="End" HeightRequest="200">
+                <Button Text="Pause" BorderColor="Transparent" BackgroundColor="Transparent" Clicked="Pause_OnClicked" />
+                <Button Text="Quality" BorderColor="Transparent" BackgroundColor="Transparent" Clicked="Quality_OnClicked"/>
+            </StackLayout>
+            </Grid>
     </ContentPage.Content>
 </ContentPage>
