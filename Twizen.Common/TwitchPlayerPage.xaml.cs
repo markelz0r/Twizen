@@ -1,10 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Net.Http;
 using Tizen.Multimedia;
-using Twizen.TV;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
