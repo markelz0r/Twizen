@@ -91,7 +91,7 @@ namespace Twizen.Common
         {
             // TODO figure out how to get m3u8 from twitch
             await Navigation.PushModalAsync(new TwitchPlayerPage(Username));
-            //TwitchPlayer.CreateAndStart("https://sec.ch9.ms/ch9/5d93/a1eab4bf-3288-4faf-81c4-294402a85d93/XamarinShow_mid.mp4");
+            //TwitchPlayer.Start("https://sec.ch9.ms/ch9/5d93/a1eab4bf-3288-4faf-81c4-294402a85d93/XamarinShow_mid.mp4");
         }
 
         private void GenerateFields()

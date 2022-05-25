@@ -7,24 +7,20 @@
     <ContentPage.BindingContext>
         <common:MainPageModel />
     </ContentPage.BindingContext>
-    <!--<ContentPage.Resources>
-        <Style x:Key="buttonStyle" TargetType="Button">
-            <Setter Property="TextColor" Value="Sienna" />
-            <Setter Property="BackgroundColor" Value="Orchid" />
-            <Setter Property="FontSize" Value="Large" />
-        </Style>
-    </ContentPage.Resources>-->
     <ContentPage.Content>
-        <StackLayout Margin="0,0,0,0" >
-            <ScrollView>
-                <FlexLayout x:Name="StreamTiles"
+        <Grid>
+            <StackLayout Margin="0,0,0,0" >
+                <ScrollView>
+                    <FlexLayout x:Name="StreamTiles"
                             Wrap="Wrap"
                             JustifyContent="SpaceEvenly" />
-            </ScrollView>
-            
+                </ScrollView>
+            </StackLayout>
             <ActivityIndicator x:Name="activityIndicator"
                            IsRunning="True"
-                           VerticalOptions="Center" />
-        </StackLayout>
+                           VerticalOptions="CenterAndExpand" 
+                           HorizontalOptions="CenterAndExpand"/>
+        </Grid>
+        
     </ContentPage.Content>
 </ContentPage>

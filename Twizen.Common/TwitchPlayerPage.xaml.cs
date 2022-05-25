@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using Tizen.Multimedia;
+using Twizen.TV;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,8 +12,8 @@ namespace Twizen.Common
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TwitchPlayerPage : ContentPage
     {
-        private Player _player;
         private string _username;
+        private TwitchPlayer _twitchPlayer;
 
         public TwitchPlayerPage(string username)
         {
@@ -26,30 +27,32 @@ namespace Twizen.Common
         {
             var client = new HttpClient();
             var result = await client.GetStringAsync($"http://server.markel.info:3333/link/{_username}");
-            Dictionary<string, string> dic = new Dictionary<string, string>();
+            var dic = new Dictionary<string, string>();
             try
             {
                 dic = JsonConvert.DeserializeObject<Dictionary<string, string>>(result);
             }
             catch (Exception ex)
             {
-                //global::Tizen.Log.Info("Crash", ex.Message);
+                // ignored
             }
-            //Debug.WriteLine(dictionary["best"]);
-#if TIZEN
 
-            _player = await TwitchPlayer.CreateAndStart(dic["best"]);
+#if TIZEN
+            _twitchPlayer = new TwitchPlayer();
+            _twitchPlayer.Start(dic["best"]);
+
             activityIndicator.IsRunning = false;
             activityIndicator.IsVisible = false;
 #endif
+
         }
 
         protected override bool OnBackButtonPressed()
         {
-            _player.Stop();
+            _twitchPlayer.Player.Stop();
             Navigation.PopModalAsync();
-            
-            _player.Dispose();
+
+            _twitchPlayer.Player.Dispose();
             return true;
         }
     }
