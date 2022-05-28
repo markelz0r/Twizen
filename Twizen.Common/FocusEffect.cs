@@ -1,17 +1,11 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using Xamarin.Forms;
-#if TIZEN
-using Xamarin.Forms.Platform.Tizen;
-#elif WINDOWS_UWP
-using Xamarin.Forms.Platform.UWP;
-#endif
 
-[assembly: ResolutionGroupName("MyCompany")]
+using Xamarin.Forms.Platform.Tizen;
+
 [assembly: ExportEffect(typeof(Twizen.Common.FocusEffect), nameof(Twizen.Common.FocusEffect))]
 namespace Twizen.Common
-{
-#if TIZEN || WINDOWS_UWP
+{ 
     internal class FocusEffect : PlatformEffect
     {
         Color focusColor = Color.FromHex("#ffffff");
@@ -48,11 +42,4 @@ namespace Twizen.Common
             }                           
         }
     }
-#else
-    internal class FocusEffect
-    {
-        
-    }
-#endif
-
 }

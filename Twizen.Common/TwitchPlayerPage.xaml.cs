@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 using System.Timers;
 using Tizen.Multimedia;
 using TwitchLib.Api.Helix.Models.Streams;
+using Twizen.Common.TizenEvents;
 using Twizen.TV;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Timer = System.Timers.Timer;
+using Timer = System.Threading.Timer;
 
 namespace Twizen.Common
 {
@@ -18,13 +19,24 @@ namespace Twizen.Common
     public partial class TwitchPlayerPage : ContentPage
     {
         private TwitchPlayer _twitchPlayer;
+        private Timer _hideUiTimer;
 
         public TwitchPlayerPage(Stream stream)
         {
             InitializeComponent();
             Stream = stream;
             BindingContext = this;
+
             InitPlayer();
+        }
+
+        private void HideUiIn10Seconds(object state)
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                TitleBar.IsVisible = false;
+                PlayerControls.IsVisible = false;
+            });
         }
 
         public Stream Stream { get; }
@@ -43,29 +55,32 @@ namespace Twizen.Common
                 // ignored
             }
 
-#if TIZEN
             _twitchPlayer = new TwitchPlayer();
             _twitchPlayer.Start(dic["best"]);
 
             activityIndicator.IsRunning = false;
             activityIndicator.IsVisible = false;
-#endif
-            ShowUi();
+
+            var autoEvent = new AutoResetEvent(false);
+            _hideUiTimer = new Timer(HideUiIn10Seconds, autoEvent, 5000, Timeout.Infinite);
+
+
+            InputEvents.GetEventHandlers(this).Add(new RemoteKeyHandler((args) =>
+            {
+                if (args.KeyName == RemoteControlKeyNames.Up)
+                    ShowUi();
+            }, RemoteControlKeyTypes.KeyUp));
         }
 
-        private async void ShowUi()
+        private void ShowUi()
         {
-            TitleBar.IsVisible = true;
-            PlayerControls.IsVisible = true;
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                TitleBar.IsVisible = true;
+                PlayerControls.IsVisible = true;
+            });
 
-            await Task.Delay(10000);
-            HideUI();
-        }
-
-        private void HideUI()
-        {
-            TitleBar.IsVisible = false;
-            PlayerControls.IsVisible = false;
+            _hideUiTimer.Change(10000, Timeout.Infinite);
         }
 
         protected override bool OnBackButtonPressed()
@@ -79,7 +94,7 @@ namespace Twizen.Common
 
         private void Pause_OnClicked(object sender, EventArgs e)
         {
-            ShowUi();
+            ResetHideUiTimer();
             switch (_twitchPlayer.Player.State)
             {
                 case PlayerState.Playing:
@@ -99,6 +114,21 @@ namespace Twizen.Common
         private void Quality_OnClicked(object sender, EventArgs e)
         {
             
+        }
+
+        private void ResetHideUiTimer()
+        {
+            _hideUiTimer.Change(5000, Timeout.Infinite);
+        }
+
+        private void VisualElement_OnFocused(object sender, FocusEventArgs e)
+        {
+            //ResetHideUiTimer();
+        }
+
+        private void MainGrid_OnFocusChangeRequested(object sender, FocusRequestArgs e)
+        {
+            ShowUi();
         }
     }
 }

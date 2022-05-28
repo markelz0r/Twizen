@@ -1,7 +1,7 @@
-<Project Sdk="MSBuild.Sdk.Extras/3.0.44">
+﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.44">
 
     <PropertyGroup>
-        <TargetFrameworks>net5.0;uap10.0.19041;tizen55</TargetFrameworks>
+        <TargetFrameworks>tizen55</TargetFrameworks>
     </PropertyGroup>
 
   <ItemGroup>
