@@ -1,6 +1,7 @@
 ﻿# Twizen
 
 Modern Twitch client for Tizen enabled TVs
+
 _This repo is very much work in progress at this stage. Stay tuned for the first stable release_
 
  <img src="docs/screenshot.jpg" alt="Logo" height="400">
