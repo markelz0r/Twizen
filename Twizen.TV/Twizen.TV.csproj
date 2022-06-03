@@ -31,7 +31,6 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-    <PackageReference Include="TwitchLib.Api" Version="3.0.4-CI-20191028-012114" />
     <PackageReference Include="Xamarin.Forms" Version="4.5.0.356" />
     <PackageReference Include="Tizen.NET" Version="9.0.0.16760" />
   </ItemGroup>

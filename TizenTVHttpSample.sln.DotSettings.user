@@ -1,4 +1,12 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Ca1cov_005CDocuments_005CProjects_005CTwitchLib_002EApi_005CTwitchLib_002EApi_002Esln/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Ca1cov_005CDocuments_005CProjects_005CTwizen_005CTwizen_002ECommon_005C3rdParty_005CTwitchLib_002EApi_002ECore_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Ca1cov_005CDocuments_005CProjects_005CTwizen_005CTwizen_002ECommon_005C3rdParty_005CTwitchLib_002EApi_002ECore_002EEnums_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Ca1cov_005CDocuments_005CProjects_005CTwizen_005CTwizen_002ECommon_005C3rdParty_005CTwitchLib_002EApi_002ECore_002EInterfaces_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Ca1cov_005CDocuments_005CProjects_005CTwizen_005CTwizen_002ECommon_005C3rdParty_005CTwitchLib_002EApi_002ECore_002EModels_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Ca1cov_005CDocuments_005CProjects_005CTwizen_005CTwizen_002ECommon_005C3rdParty_005CTwitchLib_002EApi_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Ca1cov_005CDocuments_005CProjects_005CTwizen_005CTwizen_002ECommon_005C3rdParty_005CTwitchLib_002EApi_002EHelix_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Ca1cov_005CDocuments_005CProjects_005CTwizen_005CTwizen_002ECommon_005C3rdParty_005CTwitchLib_002EApi_002EHelix_002EModels_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
   &lt;Assembly Path="C:\Users\a1cov\.nuget\packages\xamarin.forms\4.5.0.356\lib\netstandard2.0\Xamarin.Forms.Platform.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String>

@@ -5,8 +5,8 @@
     </PropertyGroup>
 
   <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.1" />
         <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-        <PackageReference Include="TwitchLib.Api" Version="3.0.4-CI-20191028-012114" />
         <PackageReference Include="Xamarin.Forms" Version="4.5.0.356" />
         <PackageReference Include="Tizen.NET" Version="9.0.0.16760" />
     </ItemGroup>
@@ -19,6 +19,34 @@
       <EmbeddedResource Update="TwitchPlayerPage.xaml">
         <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       </EmbeddedResource>
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Folder Include="3rdParty" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Reference Include="TwitchLib.Api, Version=3.5.2.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>3rdParty\TwitchLib.Api.dll</HintPath>
+      </Reference>
+      <Reference Include="TwitchLib.Api.Core, Version=3.5.2.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>3rdParty\TwitchLib.Api.Core.dll</HintPath>
+      </Reference>
+      <Reference Include="TwitchLib.Api.Core.Enums, Version=3.5.2.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>3rdParty\TwitchLib.Api.Core.Enums.dll</HintPath>
+      </Reference>
+      <Reference Include="TwitchLib.Api.Core.Interfaces, Version=3.5.2.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>3rdParty\TwitchLib.Api.Core.Interfaces.dll</HintPath>
+      </Reference>
+      <Reference Include="TwitchLib.Api.Core.Models, Version=3.5.2.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>3rdParty\TwitchLib.Api.Core.Models.dll</HintPath>
+      </Reference>
+      <Reference Include="TwitchLib.Api.Helix, Version=3.5.2.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>3rdParty\TwitchLib.Api.Helix.dll</HintPath>
+      </Reference>
+      <Reference Include="TwitchLib.Api.Helix.Models, Version=3.5.2.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>3rdParty\TwitchLib.Api.Helix.Models.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
 </Project>

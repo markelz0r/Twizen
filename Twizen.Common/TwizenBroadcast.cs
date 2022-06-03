@@ -1,5 +1,5 @@
-﻿using TwitchLib.Api.Helix.Models.Streams;
-using TwitchLib.Api.Helix.Models.Users;
+﻿using TwitchLib.Api.Helix.Models.Streams.GetStreams;
+using TwitchLib.Api.Helix.Models.Users.GetUsers;
 
 namespace Twizen.Common
 {
