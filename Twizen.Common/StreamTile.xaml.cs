@@ -13,7 +13,7 @@ namespace Twizen.Common
    [XamlCompilation(XamlCompilationOptions.Compile)]
    public partial class StreamTile : ContentView
    {
-      private Stream _stream;
+      private TwizenBroadcast _broadcast;
       private string _title;
       private string _thumbnailUrl;
       private string _viewerCount;
@@ -26,12 +26,12 @@ namespace Twizen.Common
          BindingContext = this;
       }
 
-      public Stream Stream
+      public TwizenBroadcast Broadcast
       {
-         get => _stream;
+         get => _broadcast;
          set
          {
-            _stream = value;
+            _broadcast = value;
             OnPropertyChanged();
             GenerateFields();
          }
@@ -90,16 +90,16 @@ namespace Twizen.Common
         async void OnTapped(object sender, EventArgs e)
         {
             // TODO figure out how to get m3u8 from twitch
-            await Navigation.PushModalAsync(new TwitchPlayerPage(Stream));
+            await Navigation.PushModalAsync(new TwitchPlayerPage(Broadcast));
             //TwitchPlayer.Start("https://sec.ch9.ms/ch9/5d93/a1eab4bf-3288-4faf-81c4-294402a85d93/XamarinShow_mid.mp4");
         }
 
         private void GenerateFields()
       {
-         Title = new string(Stream.Title.Take(30).ToArray());
-         ThumbnailUrl = Stream.ThumbnailUrl.Replace("{width}", "480").Replace("{height}", "270");
-         ViewerCount = Stream.ViewerCount.ToString();
-         Username = Stream.UserName;
+         Title = new string(Broadcast.Stream.Title.Take(30).ToArray());
+         ThumbnailUrl = Broadcast.Stream.ThumbnailUrl.Replace("{width}", "480").Replace("{height}", "270");
+         ViewerCount = Broadcast.Stream.ViewerCount.ToString();
+         Username = Broadcast.Stream.UserName;
       }
     }
 }

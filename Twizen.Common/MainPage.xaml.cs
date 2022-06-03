@@ -1,4 +1,6 @@
-﻿using TwitchLib.Api;
+﻿using System.Collections.Generic;
+using System.Linq;
+using TwitchLib.Api;
 using Twizen.Common;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,38 +13,31 @@ namespace TizenTVHttpSample
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
-        private readonly TwitchAPI _api;
 
         public MainPage()
         {
             InitializeComponent();
-
-            _api = new TwitchAPI
-            {
-                Settings =
-                {
-                    ClientId = "ocgrw1sbpatkypfrml0o9mj1zdbsz6",
-                    AccessToken = "syfsf1kgfmatkdg73cqbk4npxafc5p"
-                }
-            };
-
-            //_api = new TwitchAPI();
-
             LoadStreams();
         }
 
         private async void LoadStreams()
         {
-            var streams = await _api.Helix.Streams.GetStreamsAsync();
+            var streams = await ApiProvider.Api.Helix.Streams.GetStreamsAsync();
+            var userIds = streams.Streams.Select(s => s.UserId).ToList();
+            var usersResponse = await ApiProvider.Api.Helix.Users.GetUsersAsync(userIds);
             foreach (var stream in streams.Streams)
             {
+                var user = usersResponse.Users.Single(u => u.Id == stream.UserId);
+                var twizenBroadcast = new TwizenBroadcast(stream, user);
                 var streamTile = new StreamTile
                 {
-                    Stream = stream
+                    Broadcast = twizenBroadcast
                 };
 
                 StreamTiles.Children.Add(streamTile);
             }
+
+            StreamTiles.Children.First().Focus();
 
             activityIndicator.IsRunning = false;
             activityIndicator.IsVisible = false;

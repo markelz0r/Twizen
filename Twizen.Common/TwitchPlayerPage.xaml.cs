@@ -3,10 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
-using System.Threading.Tasks;
-using System.Timers;
 using Tizen.Multimedia;
-using TwitchLib.Api.Helix.Models.Streams;
 using Twizen.Common.TizenEvents;
 using Twizen.TV;
 using Xamarin.Forms;
@@ -21,10 +18,10 @@ namespace Twizen.Common
         private TwitchPlayer _twitchPlayer;
         private Timer _hideUiTimer;
 
-        public TwitchPlayerPage(Stream stream)
+        public TwitchPlayerPage(TwizenBroadcast broadcast)
         {
             InitializeComponent();
-            Stream = stream;
+            Broadcast = broadcast;
             BindingContext = this;
 
             InitPlayer();
@@ -39,12 +36,12 @@ namespace Twizen.Common
             });
         }
 
-        public Stream Stream { get; }
+        public TwizenBroadcast Broadcast { get; }
 
         private async void InitPlayer()
         {
             var client = new HttpClient();
-            var result = await client.GetStringAsync($"http://server.markel.info:3333/link/{Stream.UserName}");
+            var result = await client.GetStringAsync($"http://server.markel.info:3333/link/{Broadcast.Stream.UserName}");
             var dic = new Dictionary<string, string>();
             try
             {
@@ -56,6 +53,8 @@ namespace Twizen.Common
             }
 
             _twitchPlayer = new TwitchPlayer();
+
+            //TODO make this safer since some streams might not have best option available
             _twitchPlayer.Start(dic["best"]);
 
             activityIndicator.IsRunning = false;
@@ -63,7 +62,6 @@ namespace Twizen.Common
 
             var autoEvent = new AutoResetEvent(false);
             _hideUiTimer = new Timer(HideUiIn10Seconds, autoEvent, 5000, Timeout.Infinite);
-
 
             InputEvents.GetEventHandlers(this).Add(new RemoteKeyHandler((args) =>
             {
@@ -78,6 +76,7 @@ namespace Twizen.Common
             {
                 TitleBar.IsVisible = true;
                 PlayerControls.IsVisible = true;
+                PlayPauseButton.Focus();
             });
 
             _hideUiTimer.Change(10000, Timeout.Infinite);
@@ -85,10 +84,10 @@ namespace Twizen.Common
 
         protected override bool OnBackButtonPressed()
         {
-            _twitchPlayer.Player.Stop();
+            _twitchPlayer?.Player.Stop();
             Navigation.PopModalAsync();
 
-            _twitchPlayer.Player.Dispose();
+            _twitchPlayer?.Player.Dispose();
             return true;
         }
 

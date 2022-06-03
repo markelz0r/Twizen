@@ -1,25 +1,87 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:tizenEvents="clr-namespace:Twizen.Common.TizenEvents;assembly=Twizen.Common"
              x:Class="Twizen.Common.TwitchPlayerPage">
     <ContentPage.Effects>
-        <tizenEvents:RemoteKeyEventEffect/>
+        <tizenEvents:RemoteKeyEventEffect />
     </ContentPage.Effects>
     <ContentPage.Content>
         <Grid x:Name="MainGrid" FocusChangeRequested="MainGrid_OnFocusChangeRequested">
-            <StackLayout x:Name="TitleBar" Orientation="Horizontal" BackgroundColor="LightGray" VerticalOptions="Start" HeightRequest="200">
-                <Label Text="{Binding Stream.Title}" TextColor="Black"/>
-                <Label Text="{Binding Stream.ViewerCount}" TextColor="Black"/>
+            <StackLayout Orientation="Horizontal" x:Name="TitleBar" BackgroundColor="Black" Opacity="0.8"
+                         VerticalOptions="Start" HeightRequest="300">
+                <Image />
+                <Grid Padding="75, 0, 0, 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="170" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image
+                        Grid.Column="0"
+                        Grid.RowSpan="3"
+                        Margin="0,25,0,25"
+                        Source="{Binding Broadcast.User.ProfileImageUrl}" />
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        Text="{Binding Broadcast.Stream.UserName}"
+                        FontAttributes="Bold"
+                        TextColor="White"
+                        Margin="100, 0, 0,0" />
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        Text="{Binding Broadcast.Stream.Title}"
+                        TextColor="White"
+                        LineBreakMode="TailTruncation"
+                        Margin="100, 0, 0,0" />
+                    <StackLayout Grid.Column="1"
+                                 Grid.Row="2"
+                                 Orientation="Horizontal"
+                                 Margin="100, 0, 0,0">
+                        <Image Source="icons/person.png" />
+                        <Label
+                            Text="{Binding Broadcast.Stream.ViewerCount}"
+                            TextColor="white"
+                            Margin="15, 0, 0,0" />
+                    </StackLayout>
+
+                </Grid>
+
             </StackLayout>
             <ActivityIndicator x:Name="activityIndicator"
                                IsRunning="True"
                                VerticalOptions="CenterAndExpand"
-                               HorizontalOptions="CenterAndExpand"/>
-            <StackLayout x:Name="PlayerControls" Orientation="Horizontal" BackgroundColor="LightGray" VerticalOptions="End" HeightRequest="200">
-                <Button Text="Pause" BorderColor="Transparent" BackgroundColor="Transparent" Clicked="Pause_OnClicked" Focused="VisualElement_OnFocused"/>
-                <Button Text="Quality" BorderColor="Transparent" BackgroundColor="Transparent" Clicked="Quality_OnClicked" Focused="VisualElement_OnFocused"/>
+                               HorizontalOptions="CenterAndExpand" />
+            <StackLayout
+                x:Name="PlayerControls" Orientation="Horizontal" BackgroundColor="Black" Opacity="0.8"
+                VerticalOptions="End"
+                HeightRequest="250">
+                <Grid HorizontalOptions="CenterAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="170" />
+                        <ColumnDefinition Width="170" />
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="PlayPauseButton" Grid.Row="0" Grid.Column="0" BackgroundColor="Transparent"
+                            Opacity="1"
+                            Clicked="Pause_OnClicked"
+                            ImageSource="icons/play.png"
+                            ContentLayout="Top,0"
+                            VerticalOptions="Center" />
+                    <Button Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent" Opacity="1"
+                            Margin="15, 0, 0, 0"
+                            Clicked="Quality_OnClicked"
+                            ImageSource="icons/settings.png"
+                            VerticalOptions="Center" />
+                </Grid>
+
             </StackLayout>
-            </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
